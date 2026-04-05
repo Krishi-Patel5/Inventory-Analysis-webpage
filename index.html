@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inventory Analysis | Krishi Patel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f0f8ff;
+      color: #0c2340;
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    /* NAVBAR */
+    nav {
+      background-color: #ffffff;
+      padding: 18px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #c9e4f5;
+    }
+    nav .brand {
+      font-size: 16px;
+      font-weight: 700;
+      color: #0284c7;
+      text-decoration: none;
+    }
+
+    /* PAGE WRAPPER */
+    .wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 60px 40px 80px;
+    }
+
+    /* BADGE */
+    .badge {
+      display: inline-block;
+      background-color: #e0f2fe;
+      color: #0284c7;
+      border: 1px solid #bae6fd;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+
+    /* HEADINGS */
+    h1 {
+      font-size: 42px;
+      font-weight: 700;
+      color: #0c2340;
+      margin: 0 0 20px 0;
+      line-height: 1.15;
+    }
+    h2 {
+      font-size: 24px;
+      font-weight: 600;
+      color: #0c2340;
+      margin: 48px 0 12px 0;
+    }
+
+    /* PARAGRAPH */
+    p {
+      color: #3d6a8a;
+      margin: 0 0 16px 0;
+    }
+
+    /* DIVIDER */
+    hr {
+      border: none;
+      border-top: 1px solid #c9e4f5;
+      margin: 50px 0;
+    }
+
+    /* SECTION LABEL */
+    .label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #0284c7;
+      margin-bottom: 8px;
+    }
+
+    /* BUTTON */
+    .btn-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin: 24px 0;
+    }
+    .btn {
+      display: inline-block;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 11px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .btn-blue {
+      background-color: #0284c7;
+      color: #ffffff;
+    }
+    .btn-blue:hover { background-color: #0369a1; }
+
+    /* SCREENSHOT GRID 2x2 */
+    .screenshot-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 24px 0 8px 0;
+    }
+    .screenshot-grid img {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid #c9e4f5;
+      display: block;
+    }
+    .screenshot-grid .img-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    /* SCREENSHOT SMALL (data model) - already inside grid */
+    .caption {
+      font-size: 11px;
+      color: #7aaec8;
+      text-align: center;
+    }
+
+    /* BULLET LIST */
+    ul {
+      padding-left: 0;
+      list-style: none;
+      margin: 12px 0 0 0;
+    }
+    ul li {
+      color: #3d6a8a;
+      padding: 8px 0;
+      border-bottom: 1px solid #deeef8;
+      padding-left: 18px;
+      position: relative;
+    }
+    ul li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: #0284c7;
+      font-weight: 700;
+    }
+    ul li:last-child { border-bottom: none; }
+    ul li strong { color: #0c2340; }
+
+    /* FOOTER */
+    footer {
+      background-color: #ffffff;
+      border-top: 1px solid #c9e4f5;
+      padding: 28px 60px;
+      text-align: center;
+      font-size: 13px;
+      color: #7aaec8;
+    }
+    footer strong { color: #3d6a8a; }
+
+    @media (max-width: 600px) {
+      nav { padding: 14px 20px; }
+      .wrapper { padding: 40px 20px 60px; }
+      h1 { font-size: 28px; }
+      .screenshot-grid { grid-template-columns: 1fr; }
+      footer { padding: 24px 20px; }
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <a class="brand" href="#">Krishi Patel</a>
+</nav>
+
+<!-- PAGE CONTENT -->
+<div class="wrapper">
+
+  <!-- HERO -->
+  <div class="badge">Data Analytics Project · Power BI</div>
+  <h1>Inventory Analysis</h1>
+  <p>
+    Every day your shelves sit empty or overfull, you are losing money.
+  </p>
+  <p>
+    Most businesses do not realise it until it is too late. A customer lands on your store,
+    finds the product out of stock, and goes straight to a competitor. Meanwhile, your
+    warehouse is full of products nobody is buying quietly draining cash that could have
+    been spent on growth. This project was built to find exactly where that is happening
+    and put a real number on it.
+  </p>
+
+  <hr />
+
+  <!-- DASHBOARD -->
+  <div id="dashboard">
+    <div class="label">Power BI Dashboard</div>
+    <h2>See the analysis</h2>
+    <p>
+      This is Power BI dashboard built across three pages covering Inventory Overview, 
+      Stockouts and Excess Inventory, and Efficiency and Costs. See exactly where the 
+      money is sitting, where it is bleeding, and what to do about it.
+    </p>
+
+    <div class="btn-row">
+      <a class="btn btn-blue"
+         href="https://drive.google.com/file/d/1G9xXkc2LvYHHiA1EDvf9fjl_ECeTqQ44/view?usp=drive_link"
+         target="_blank">
+        📄 View Presentation →
+      </a>
+    </div>
+
+
+      <div class="screenshot-grid">
+        <div class="img-wrap">
+          <img src="assets/dashboard-1.png" alt="Inventory Overview" />
+          <p class="caption">Inventory Overview</p>
+        </div>
+        <div class="img-wrap">
+          <img src="assets/dashboard-2.png" alt="Stockouts & Excess Inventory" />
+          <p class="caption">Stockouts & Excess Inventory</p>
+        </div>
+        <div class="img-wrap">
+          <img src="assets/dashboard-3.png" alt="Efficiency & Costs" />
+          <p class="caption">Efficiency & Costs</p>
+        </div>
+        <div class="img-wrap">
+          <img src="assets/model view.png" alt="Power BI Data Model" />
+          <p class="caption">Power BI Data Model - Star Schema</p>
+        </div>
+      </div>
+
+  </div>
+
+  <hr />
+
+  <!-- ABOUT -->
+  <div id="about">
+    <div class="label">About This Project</div>
+    <h2>What problem does this solve?</h2>
+    <p>
+      Imagine you run a manufacturing business. You have purchased $134 million worth of
+      inventory. But in the same period, you have only sold $33 million. Your warehouse
+      is full. Your cash is tied up. And somewhere inside that gap between what you
+      bought and what you sold your profit is slowly disappearing.
+    </p>
+    <p>
+      Now add to that: 67.53% of your total stock is sitting below its reorder point.
+      That means the products customers actually want are running out. And 82.98% of
+      your total product quantity went completely unsold.
+    </p>
+    <p>
+      This is not a storage problem. It is an intelligence problem. And data is the fix.
+    </p>
+    <p>
+      I analysed one year of purchase data and two months of sales data from a real
+      manufacturing company dealing in electronic components, a fast-moving, high-stakes
+      category where every wrong decision is expensive.
+    </p>
+  </div>
+
+  <hr />
+
+  <!-- PROCESS -->
+  <div id="process">
+    <div class="label">How I Did It</div>
+    <h2>Here is my process</h2>
+    <ul>
+      <li><strong>Built the data model</strong> - Connected six tables using a Star Schema in Power BI: Sales, Purchases, Ending Inventory, Beginning Inventory, Purchase Prices, and Invoice Purchases</li>
+      <li><strong>Created calculated metrics</strong> - Built DAX measures for safety stock, reorder point, average daily demand, carrying cost percentage, inventory turnover, and profit margin</li>
+      <li><strong>Designed three dashboard pages</strong> - Inventory Overview, Stockouts and Excess Inventory, and Efficiency and Costs, each answering a specific business question</li>
+      <li><strong>Identified stockout risks</strong> - Found which brands and SKUs were most at risk of running out, and quantified the scale of the problem</li>
+      <li><strong>Quantified the cost of poor planning</strong> - Put a real dollar figure on carrying costs, overstocked SKUs, and unsold inventory</li>
+      <li><strong>Built a 4-step recovery plan</strong> - Turned every finding into a concrete action a supply chain or operations team can start today</li>
+    </ul>
+  </div>
+
+  <hr />
+
+  <!-- INSIGHTS -->
+  <div id="insights">
+    <div class="label">What I Found</div>
+    <h2>What the data revealed</h2>
+    <ul>
+      <li><strong>$134M purchased. $33M sold.</strong> - Purchases are nearly 4 times the value of sales in this period. That gap is not just a number, it is where the cash flow problem lives, and it is fully visible in the data</li>
+      <li><strong>67.53% of total stock is below reorder point</strong> - More than two thirds of all stock is in the danger zone. These are the products most likely to run out before the next order arrives, and the ones causing the most lost sales</li>
+      <li><strong>82.98% of total product quantity went unsold</strong> - The warehouse is full, but not of what customers want. This is the definition of inventory inefficiency capital locked in the wrong products</li>
+      <li><strong>Only 6.94% of brands had truly healthy stock levels</strong> - Across all brands analysed, less than 7% were in a genuinely safe position. The rest were either overstocked or dangerously understocked</li>
+      <li><strong>$4.48M spent on carrying costs before selling a single unit</strong> - Every day inventory sits unsold, it costs money in storage, insurance, and depreciation. This analysis put an exact number on that hidden cost</li>
+      <li><strong>77.96% of brands were classified as low sales</strong> - Nearly 4 in 5 brands were underperforming on sales. The business was spreading attention too wide and not concentrating on what was actually moving</li>
+    </ul>
+  </div>
+
+  <hr />
+
+  <!-- TOOLS -->
+  <div>
+    <div class="label">Tools & Skills</div>
+    <h2>Built with</h2>
+    <ul>
+      <li><strong>Power BI</strong> - Three-page interactive dashboard covering overview, stockouts, and cost efficiency</li>
+      <li><strong>Star Schema Data Modelling</strong> - Connected six relational tables into a unified, analysis-ready model</li>
+      <li><strong>DAX & Calculated Metrics</strong> - Built reorder points, safety stock, carrying cost %, inventory turnover, and demand forecasting measures</li>
+      <li><strong>Business Insight Reporting</strong> - Translated inventory data into a 4-step strategic recovery plan for operations and supply chain teams</li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Krishi Patel</strong> · Inventory Analysis
+</footer>
+
+</body>
+</html>
